@@ -73,7 +73,8 @@
     var h = '<div class="cover">' +
       '<div class="cover-hero">' +
       '<div class="cover-panel"><div class="kicker">' + C.lessons.length + ' وحدات تعلم</div><h1>' + esc(plain(C.title)) + '</h1>' +
-      '<button class="pill" id="startBtn">' + (started ? T.resume : T.start) + '</button></div>' +
+      '<button class="pill" id="startBtn">' + (started ? T.resume : T.start) + '</button>' +
+      '<div class="cover-team"><div><b>إعداد:</b> ' + TEAM.join(' · ') + '</div><div>' + TEAM_ROLE + '</div></div></div>' +
       '<div class="cover-img" role="img" aria-label="صورة غلاف الدورة" style="background-image:url(\'' + C.cover + '\')"></div>' +
       '</div><div class="cover-body"><div class="cover-desc">' + C.description + '</div><ol class="cover-list">';
     C.lessons.forEach(function (L, i) {
@@ -81,8 +82,7 @@
       h += '<li><button data-i="' + i + '"' + (ok ? '' : ' aria-disabled="true" title="' + T.locked + '"') + '>' + ring(i) +
         '<span class="num">' + T.lesson + ' ' + (i + 1) + '</span><span class="ttl">' + esc(lessonTitle(i)) + '</span>' + (ok ? '' : '<span style="width:1.8rem;display:inline-block">' + ICON.lock + '</span>') + '</button></li>';
     });
-    h += '</ol><section class="team" aria-labelledby="teamH"><h2 id="teamH">فريق الإعداد</h2><p class="team-role">' + TEAM_ROLE + '</p><ul>' +
-      TEAM.map(function (n) { return '<li>' + n + '</li>'; }).join('') + '</ul></section></div></div>';
+    h += '</ol></div></div>';
     app.innerHTML = h;
     window.scrollTo(0, 0);
     document.getElementById('startBtn').onclick = function () { go(started ? firstOpen() : 0); };
