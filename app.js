@@ -18,6 +18,8 @@
     lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 1 1 6 0v3H9z"/></svg>',
     down: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
   };
+  var TEAM = ['نورة القباع', 'لولوة الدخيل', 'ابتهاج الدايل', 'أمل الخمعلي'];
+  var TEAM_ROLE = 'طالبات ماجستير تصميم التعليم والتكنولوجيا';
   var NUM = ['', 'الأولى', 'الثانية', 'الثالثة', 'الرابعة', 'الخامسة', 'السادسة'];
 
   /* ---------- progress store ---------- */
@@ -79,7 +81,8 @@
       h += '<li><button data-i="' + i + '"' + (ok ? '' : ' aria-disabled="true" title="' + T.locked + '"') + '>' + ring(i) +
         '<span class="num">' + T.lesson + ' ' + (i + 1) + '</span><span class="ttl">' + esc(lessonTitle(i)) + '</span>' + (ok ? '' : '<span style="width:1.8rem;display:inline-block">' + ICON.lock + '</span>') + '</button></li>';
     });
-    h += '</ol></div></div>';
+    h += '</ol><section class="team" aria-labelledby="teamH"><h2 id="teamH">فريق الإعداد</h2><p class="team-role">' + TEAM_ROLE + '</p><ul>' +
+      TEAM.map(function (n) { return '<li>' + n + '</li>'; }).join('') + '</ul></section></div></div>';
     app.innerHTML = h;
     window.scrollTo(0, 0);
     document.getElementById('startBtn').onclick = function () { go(started ? firstOpen() : 0); };
@@ -105,7 +108,7 @@
     app.innerHTML =
       '<div class="shell' + (closed ? ' side-closed' : '') + '">' +
       '<aside class="side" aria-label="محتويات الدورة"><div class="side-head"><button class="side-home" id="homeBtn">' + esc(plain(C.title)) + '</button>' +
-      '<div class="side-prog"><span id="pct"></span></div><div class="side-bar"><span id="pctBar"></span></div></div><ol class="side-list" id="sideList"></ol></aside>' +
+      '<div class="side-prog"><span id="pct"></span></div><div class="side-bar"><span id="pctBar"></span></div></div><ol class="side-list" id="sideList"></ol><div class="side-team"><b>إعداد:</b> ' + TEAM.join('، ') + '<br>' + TEAM_ROLE + '</div></aside>' +
       '<div class="scrim" id="scrim"></div>' +
       '<main class="main"><div class="topbar"><button class="icon-btn" id="menuBtn" aria-label="' + T.menu + '">' + ICON.menu + '</button>' +
       '<div class="tb-title">' + T.lesson + ' ' + (i + 1) + ' ' + T.of + ' ' + C.lessons.length + '</div></div>' +

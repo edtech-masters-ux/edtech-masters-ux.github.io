@@ -237,6 +237,16 @@ a{color:var(--accent-dark)}
 .srt-res .big{font-size:2.4rem;font-weight:800;margin-bottom:1.6rem}
 .srt-tip{text-align:center;color:var(--muted);font-size:1.35rem;margin:0 0 3rem}
 
+/* Team credits */
+.team{margin-top:5.6rem;text-align:center}
+.team h2{margin:0;font-size:2.2rem;font-weight:800}
+.team-role{color:var(--muted);margin:.6rem 0 2.4rem;font-size:1.6rem}
+.team ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.team li{background:var(--accent-soft);border-radius:var(--radius);padding:1.8rem 1rem;font-weight:700;font-size:1.7rem;border-top:4px solid var(--accent)}
+.side-team{border-top:1px solid var(--line);padding:1.4rem 2.4rem;font-size:1.25rem;line-height:1.7;color:var(--muted)}
+.side-team b{color:var(--ink)}
+@media (max-width:720px){.team ul{grid-template-columns:1fr 1fr}}
+
 /* Continue */
 .cont{padding:3.2rem 0 4.8rem}
 .cont-btn{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:1rem;width:100%;min-height:6.4rem;padding:1.4rem 2.4rem;background:var(--accent);color:#fff;border-radius:6px;font-weight:800;font-size:1.75rem;cursor:pointer;text-align:center;transition:background .15s}
